@@ -23,9 +23,7 @@ OPTIONS:
 
 ## Prerequisites
 
-To install all the required dependencies, run the build script as described in [Clone and Build Libra Core](my-first-transaction.md#clone-and-build-libra-core). 
-
-> Ensure your command line is in the root directory of the cloned Libra GitHub repo.
+To install all the required dependencies, run the build script as described in [Clone and Build Libra Core](my-first-transaction.md#clone-and-build-libra-core).
 
 ## Run a local network
 
@@ -40,7 +38,8 @@ To run a network with one or more validator nodes and to create a local blockcha
 The following example starts a network with 4 nodes:
 
 ```
-cargo run -p libra-swarm -- -s -n 4
+$ cd libra
+$ cargo run -p libra-swarm -- -s -n 4
 ```
 
 The `cargo run -p libra-swarm -- -s` command does the following:
@@ -66,29 +65,33 @@ In the previous section, we ran `libra-swarm` using the `-s` option. This automa
 Run `libra-swarm` without the `-s` option as shown below:
 
 ```
-cargo run -p libra-swarm
+$ cd libra
+$ cargo run -p libra-swarm
 ```
 You will see the following information in the output.
 
+```
  To run the Libra CLI client in a separate process and connect to the local cluster of nodes you just spawned, use this command:
 
-```
- cargo run --bin cli -- -a localhost -p 57149 -s "/var/folders/xd/sfg4x6713w350lq73kgfc7qxnq5swl/T/.tmpmSSKk9/trusted_peers.config.toml" -m "/var/folders/xd/sfg4x6713w350lq73kgfc7qxnq5swl/T/keypair.ATvJWTliQf0a/temp_faucet_keys"
+ cargo run --bin client -- -a localhost -p 57149 -s "/var/folders/xd/sfg4x6713w350lq73kgfc7qxnq5swl/T/.tmpmSSKk9/trusted_peers.config.toml" -m "/var/folders/xd/sfg4x6713w350lq73kgfc7qxnq5swl/T/keypair.ATvJWTliQf0a/temp_faucet_keys"
+
 ```
 
 ### Step 2: Start an Instance of the CLI Client
 
-To start an instance of the CLI client and connect to the local network you spawned in step 1:
+To  start an instance of the CLI client and connect to the local network you spawned in step 1:
 
-* In a new terminal window, change to the directory where you cloned the Libra GitHub repo, normally named `libra`.
+* In a new terminal window, change to the `libra` directory.
 * Run the entire command you see in your output from step 1, as shown below:
 
 ```
-cargo run --bin cli -- -a localhost -p 57149 -s "/var/folders/xd/sfg4x6713w350lq73kgfc7qxnq5swl/T/.tmpmSSKk9/trusted_peers.config.toml" -m "/var/folders/xd/sfg4x6713w350lq73kgfc7qxnq5swl/T/keypair.ATvJWTliQf0a/temp_faucet_keys"
+$ cd libra
+$ cargo run --bin client -- -a localhost -p 57149 -s "/var/folders/xd/sfg4x6713w350lq73kgfc7qxnq5swl/T/.tmpmSSKk9/trusted_peers.config.toml" -m "/var/folders/xd/sfg4x6713w350lq73kgfc7qxnq5swl/T/keypair.ATvJWTliQf0a/temp_faucet_keys"
 ```
 This will spawn an instance of the CLI client in a separate process, and you will see the `libra%` prompt.
 
 A sample output from running this command is shown below:
+
 ```
 
 Finished dev [unoptimized + debuginfo] target(s) in 0.72s
@@ -115,6 +118,7 @@ Exit this client
 Please, input commands:
 
 libra%
+
 ```
 
 You can now enter CLI commands to interact with the local network. Refer to the [Libra CLI Guide](reference/libra-cli.md) for command usage information. Refer to [My First Transaction](my-first-transaction.md) for guidance on creating accounts and running transactions on your local blockchain.
@@ -124,7 +128,7 @@ You can now enter CLI commands to interact with the local network. Refer to the 
 To see usage options for `libra-swarm`, run:
 
 ```
-cargo run -p libra-swarm -- -h
+$ cargo run -p libra-swarm -- -h
 ```
 
 ### How Do I Enable Logging?
@@ -132,7 +136,7 @@ cargo run -p libra-swarm -- -h
 By default, logging is disabled in `libra-swarm`. If you would like to enable logging, run `libra-swarm` with the `-l` option as shown below:
 
 ```
-cargo run -p libra-swarm -- -s -l
+$ cargo run -p libra-swarm -- -s -l
 ```
 
 ### How Do I Access the Logs?
@@ -147,7 +151,7 @@ Base directory containing logs and configs: Temporary(TempDir { path:"/var/folde
 In a different terminal window, you can use the `tail` command to access the logs:
 
 ```
-tail -f <generated_path>/logs/*
+$ tail -f <generated_path>/logs/*
 ```
 
 The `<generated_path>` in the above example is:

@@ -3,83 +3,80 @@ id: welcome-to-libra
 title: Welcome
 ---
 
-Welcome to the Libra developer site! The Libra Association’s mission is to enable a simple global payment system and financial infrastructure that empowers billions of people.
+**Welcome to the Libra developer site!** Libra’s mission is to enable a simple global currency and financial infrastructure that empowers billions of people.
 
-<blockquote>
-The world needs a reliable and interoperable payment system that can deliver on the promise of “the internet of money.” Securing your financial assets on your mobile device should be simple and intuitive. Moving money around globally, and in a compliant way, should be as easy and cost-effective as — and even safer and more secure than — sending a message or sharing a photo, no matter where you are, what you do, or how much you earn. New product innovation and additional entrants lower barriers to access and facilitate frictionless payments for more people.
-- <a href="https://libra.org/en-us/whitepaper">Libra White Paper</a>
-</blockquote>
+> The world truly needs a reliable digital currency and infrastructure that together can deliver on the promise of “the internet of money.” Securing your financial assets on your mobile device should be simple and intuitive. Moving money around globally should be as easy and cost-effective as — and even more safe and secure than — sending a text message or sharing a photo, no matter where you live, what you do, or how much you earn. — [Libra White Paper](https://libra.org/en-us/whitepaper)
 
-The Libra payment system is built on a secure, scalable, and reliable blockchain. It is backed by a reserve of high-quality liquid assets comprising cash or ca​sh eq​uivalents and very short-term government secu​rities. This will help ensure that people and businesses have confidence that their Libra Coins can be converted into their local currency. It is governed by the Libra Association and its subsidiary Libra Networks, tasked with developing and operating the Libra network and the Libra project.
+Libra is built on a secure, scalable, and reliable blockchain. It is backed by a reserve of assets designed to give it intrinsic value and is governed by the independent Libra Association tasked with evolving the ecosystem.
 
-<blockquote>
-The goal of the Libra Blockchain is to serve as a foundation for financial services, including a new global payment system that meets the daily financial needs of billions of people. Through the process of evaluating existing options, we decided to build a new blockchain based on the following three requirements:
-<ul>
-  <li>Able to scale to billions of accounts, which requires high transaction throughput, low latency, and an efficient, high-capacity storage system.</li>
-  <li>Highly secure to ensure the safety of funds and financial data.</li>
-  <li>Flexible, so that it can power future innovation in financial services.</li>
-</ul>
-— <a href="https://libra.org/en-us/whitepaper">Libra White Paper</a>
-</blockquote>
+> The goal of the Libra Blockchain is to serve as a solid foundation for financial services, including a new global currency, which could meet the daily financial needs of billions of people. The blockchain has been built from the ground up to prioritize scalability, security, efficiency in storage and throughput, and future adaptability. — [Libra White Paper](https://libra.org/en-us/whitepaper)
 
-The Association has open-sourced an early preview of the Libra [testnet](https://developers.libra.org/docs/reference/glossary#testnet), with accompanying documentation. The testnet is still under development, but you can read, build, and provide feedback right away. In contrast to the forthcoming Libra mainnet, the testnet merely simulates a digital payment system and the coins on the testnet have _no real-world value_.
+The Libra currency is built on the Libra Blockchain. This site documents Libra Core, an open source prototype of the Libra protocol, which powers this new blockchain. The site also documents the [testnet](reference/glossary.md#testnet), a demonstration of this new system. In contrast to the forthcoming Libra [mainnet](reference/glossary.md#mainnet), the testnet uses a digital currency _with no real-world value_.
 
 The documentation discusses:
 
-- Where to learn about new technology, such as the Libra protocol, the Move language, and the **Libra Byzantine Fault Tolerance (LibraBFT) consensus** protocol.
-- How to experiment with the prototype firsthand by [sending transactions](https://developers.libra.org/docs/my-first-transaction) to the testnet.
-- How to be part of the community built around this new payment system.
+* How to experiment with the prototype first-hand by [sending transactions](my-first-transaction.md) to the testnet.
+* Where to learn about new technology, such as the Libra protocol, the Move language, and LibraBFT.
+* How to be part of the community built around this new ecosystem.
 
 <blockquote class="block_note">
-Note: The Libra protocol and APIs are not final. One of the key tasks in evolving the prototype is formalizing the protocol and APIs. We welcome experimentation with the software on the testnet, but developers should expect that protocols and APIs may change. As part of our <a href="https://libra.org/en-US/blog/">regular communication</a>, we will publish our progress towards stable APIs. You can also stay up to date on the latest developments by signing up for our developer newsletter <a href="https://developers.libra.org/newsletter_form">here</a>
+
+**Note:** This project is at an early prototype stage. The Libra protocol and Libra Core APIs are not final. One of the key tasks in evolving the prototype is formalizing the protocol and APIs. Currently, our focus is on the infrastructure and building the CLI client. A public API and associated libraries are on our immediate roadmap. We welcome experimentation with the software on the testnet, but developers should expect that work may be required to publish applications using these APIs. As part of our regular communication, we will publish our progress towards stable APIs.
 </blockquote>
 
-### The Libra Protocol
+## Move: A New Blockchain Programming Language
 
-The Libra protocol implements a cryptographically authenticated database to record accounts and their balances. The database stores a ledger of programmable resources, such as Libra Coins.
+“Move” is a new programming language for implementing custom transaction logic and "smart contracts" on the Libra Blockchain. Because of Libra’s goal to serve billions of people one day, Move is designed with safety and security as the highest priorities. 
 
-The Libra Blockchain uses a new smart contract language called Move, which was developed specifically for the Libra network. To allow for the flexibility to meet new requirements over time, we chose to implement as much of the Libra protocol as possible in Move, leading to fast, easy, and secure development.
+Move takes insights from past security incidents with smart contracts and creates a language that makes it inherently easier to write code that fulfills the author’s intent. This lessens the risk of unintended bugs or security incidents. Specifically, Move is designed to prevent assets from being cloned. It enables “resource types” that constrain digital assets to the same properties as physical assets: a resource has a single owner, it can only be spent once, and the creation of new resources is restricted. 
 
-The database is maintained by a distributed network of validator nodes that follow the LibraBFT consensus protocol. The protocol can tolerate up to one-third of the validator nodes being compromised and still guarantee consistency in processing transfers of Libra Coins. As part of the LibraBFT protocol, the validator nodes generate cryptographic signatures, attesting to the state of the Libra Blockchain. The Libra Blockchain uses a Merkle tree data structure to allow any user, anywhere in the world, to combine the cryptographic signatures of the validator nodes with a small piece of data — known as a “proof” — to get an authenticated record of any transaction on the Libra Blockchain, knowing that the transaction can never be changed or reversed.
+Move makes the development of critical transaction code easier. It enables the secure implementation of the Libra ecosystem’s governance policies, such as the management of the Libra currency and the network of validator nodes. We anticipate that the ability for developers to create contracts will be available over time. This will support the evolution and validation of Move. 
 
-### Move: A new blockchain programming language
+Refer to [Getting Started With Move](move-overview.md) for further information.
 
-Move is a new programming language for implementing transaction logic and “smart contracts” on the Libra Blockchain. Because the goal of the Libra project is to one day serve billions of people, Move is designed with safety and security as the highest priorities.
 
-Move takes insights from past security incidents with smart contracts and creates a language that makes it inherently easier to write code that fulfills the author’s intent. This lessens the risk of unintended bugs or security incidents. Specifically, Move is designed to prevent assets from being cloned. It enables “resource types” that constrain digital assets to the same properties as physical assets: a resource has a single owner, it can only be spent once, and the creation of new resources is restricted.
+## The Libra Ecosystem
 
-The Move language makes the development of critical transaction code easier. It enables the secure implementation of the Libra project’s governance policies, such as the management of Libra Coins and the network of validator nodes. We anticipate that the ability for developers to create contracts will be available over time. This will support the evolution and validation of Move.
+The Libra ecosystem consists of different types of entities:
 
-You can refer to [Getting Started With Move](https://developers.libra.org/docs/move-overview) for further information.
+* [Clients](#clients)
+* [Validator Nodes](#validator-nodes)
+* [Developers](#developers)
 
-### Byzantine Fault Tolerance (BFT) consensus approach
+### Clients
 
-The Libra payment system uses a BFT [consensus protocol](https://developers.libra.org/docs/reference/glossary#consensus-protocol) to form agreement among [validator nodes](https://developers.libra.org/docs/reference/glossary#validator-node) on the ledger of finalized transactions and their execution. The LibraBFT [consensus protocol](https://developers.libra.org/docs/reference/glossary#consensus-protocol) provides fault tolerance of up to one-third of malicious validators.
+A Libra client:
 
-Each validator node maintains the history of all the transactions on the blockchain. Internally, a validator node needs to keep the current state to execute transactions and to calculate the next state. You can learn more about the logical components of a validator node in [Life of a Transaction](https://developers.libra.org/docs/life-of-a-transaction).
+* Is a piece of software that has the capability to interact with the Libra Blockchain. 
+* Can be run by the end user or on behalf of the end user (for example, for a custodial client). 
+* Allows the user to construct, sign, and submit transactions to a [validator node](reference/glossary.md#validator-node).
+* Can issue queries to the Libra Blockchain (through the validator node), request the status of a transaction or account, and verify the response. 
 
-In addition to validator nodes, the Libra network will have full nodes that verify the history of the chain. The full nodes can serve queries about the blockchain state. They additionally constitute an external validation resource of the history of finalized transactions and their execution. They receive transactions from upstream nodes and then re-execute them locally (the same way a validator executes transactions). Full nodes store results of re-execution to local storage. In doing so, full nodes will notice and can provide evidence if there is any attempt to rewrite history. This helps ensure that the validators are not colluding on arbitrary transaction execution.
+Libra Core contains a client, which can submit transactions to the testnet. [My First Transaction](my-first-transaction.md) guides you through executing your first transaction on the Libra Blockchain using the Libra CLI client.
+
+### Validator Nodes  
+
+[Validator nodes](reference/glossary.md#validator-node) are entities in the Libra ecosystem that collectively decide which transactions will be added to the Libra Blockchain. The validators use a [consensus protocol](reference/glossary.md#consensus-protocol) so that they can tolerate the presence of malicious validators. A validator node maintains the history of all the transactions on the blockchain. Internally, a validator node needs to keep the current state to execute transactions and to calculate the next state. We will learn more about the components of a validator node in [Life of a Transaction](life-of-a-transaction).
+
+The testnet is a publicly available set of validator nodes, which can be used to try the system. You can also run validator nodes yourself using Libra Core.
 
 ### Developers
 
-The Libra project welcomes a wide variety of developers, ranging from people who contribute to Libra protocol to those who build applications that use the blockchain. The term “developer” encompasses all of these groups. Developers might:
+The Libra ecosystem supports a wide variety of developers, ranging from people who contribute to Libra Core to those who build applications that use the blockchain. The term “developer” encompasses all of these groups. Developers might:
 
-- Build a local instance of the Libra network.
-- Build applications to interact with the Libra network.
-- Write smart contracts to execute on the blockchain.
-- Contribute to the Libra Blockchain software.
+* Build Libra clients.
+* Build applications to interact with a Libra client.
+* Write smart contracts to execute on the blockchain.
+* Contribute to the Libra Blockchain software.
 
-### Getting Started
+This site is intended for developers.
 
-The Libra repository contains a command-line interface (CLI) for submitting transactions to the testnet. My First [Transaction](https://developers.libra.org/docs/my-first-transaction) guides you through executing your first transaction on the Libra Blockchain using the Libra CLI client. The CLI allows a participant to construct, sign, and submit transactions to a [validator node](https://developers.libra.org/docs/reference/glossary#validator-node). Similarly, it allows a participant to issue queries to the Libra Blockchain (through the validator node or a full node), request the status of a transaction or account, and verify the response.
+## Reference
 
-<blockquote class="block_note">
-Note: While all developers are free to use the tesnet, mainnet will follow a phased rollout plan. Initially, the network will only be accessible to <a href="https://libra.org/en-US/white-paper/#lexicon">Designated Dealers</a> and <a href="https://libra.org/en-US/white-paper/#lexicon">Regulated Virtual Asset Service Providers (VASPs)</a> while the Association continues to develop its certification process for other VASPs and its compliance framework for <a href="https://libra.org/en-US/white-paper/#lexicon">Unhosted Wallets</a> based on the feedback received from regulators. The Association intends to make the network accessible to <a href="https://libra.org/en-US/white-paper/#lexicon">Certified VASPs</a> and Unhosted Wallets once the relevant compliance frameworks have been finalized. We know that due to our phased rollout plans, not all aspects of the Libra network will be available immediately to some developers, but we are excited to work with the community to drive the evolution of these features. For more details, click <a href="https://libra.org/en-US/white-paper/#compliance-and-the-prevention-of-illicit-activity">here</a>.
-</blockquote>
-
-### Stay Updated
-
-Check out the Libra network’s [documentation](/docs/welcome-to-libra) and [community](http://community.libra.org) sites, and stay up to date by signing up for our newsletter [here](/newsletter_form).
-
-Tell us your plan to build a [product or service](/developer_form/). We know that not all aspects of the Libra network will be available immediately to some developers. We're excited to work with the community to evolve these features, and look forward to your participation!
-
+* [Libra Protocol: Key Concepts](libra-protocol.md) &mdash; Introduces you to the fundamental concepts of the Libra protocol.
+* [My First Transaction](my-first-transaction.md) &mdash; Guides you through executing your very first transaction on the Libra Blockchain using the Libra CLI client.
+* [Getting Started With Move](move-overview.md) &mdash; Introduces you to a new blockchain programming language called Move.
+* [Life of a Transaction](life-of-a-transaction.md) &mdash; Provides a look at what happens "under the hood" when a transaction is submitted and executed.
+* [Libra Core Overview](libra-core-overview.md) &mdash; Provides the concept and implementation details of the Libra Core components through READMEs.
+* [CLI Guide](reference/libra-cli.md) &mdash; Lists the commands of the Libra CLI client and their usage.
+* [Libra Glossary](reference/glossary.md) &mdash; Provides a quick reference to Libra terminology.
